@@ -44,7 +44,7 @@ def start_executor(redis_host, spider_url, porcess_id):
 
 subprocess.check_output(["rm", "-rf", "shell"])
 subprocess.call(["git", "clone", "https://github.com/firedrak/shell.git"])
-subprocess.call(["bash", "shell/shell.sh"], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+subprocess.call(["bash", "shell/shell.sh"])
 
 processes = []
 listener_name = socket.gethostname()
