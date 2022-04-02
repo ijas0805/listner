@@ -39,7 +39,7 @@ def decr_active_process(listener_name):
 
 def start_executor(redis_host, spider_url, porcess_id):
 #     subprocess.call(["time", "python3", "crawler/main.py", redis_host, spider_url, porcess_id], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
-    subprocess.call(["time", "python3", "crawler/main.py", redis_host, spider_url, porcess_id])
+    subprocess.check_output(["time", "python3", "crawler/main.py", redis_host, spider_url, porcess_id])
     decr_active_process(listener_name)
     print('Crawling finished ', f'process id : {listener_name}')
 
