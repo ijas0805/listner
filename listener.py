@@ -3,6 +3,7 @@ import os, sys, time
 import subprocess
 import socket
 from multiprocessing import Process
+from crawler import main
 
 # Sample command to use listener.py
 # python3 listener.py redis_host max_processes listener_name
