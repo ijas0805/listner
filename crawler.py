@@ -32,7 +32,7 @@ async def extracting():
                 redisClient.redis_push(f'job_queue_of_{SPIDER_URL}', job)
 
     while redisClient.get_status(SPIDER_URL) == 'running':
-        redisClient.heart_beat(porcess_id, spider_url)
+        redisClient.heart_beat(porcess_id, SPIDER_URL)
         page_left = (redisClient.length_of_queue(f'page_queue_of_{SPIDER_URL}'))
         if page_left:
             redisClient.incr_process_count(porcess_id)
@@ -62,7 +62,7 @@ async def fetching():
         redisClient.dicr_process_count(porcess_id)
             
     while redisClient.get_status(SPIDER_URL) == 'running':
-        redisClient.heart_beat(porcess_id, spider_url)
+        redisClient.heart_beat(porcess_id, SPIDER_URL)
         job_left = (redisClient.length_of_queue(f'job_queue_of_{SPIDER_URL}'))
         if job_left:
             redisClient.incr_process_count(porcess_id)
